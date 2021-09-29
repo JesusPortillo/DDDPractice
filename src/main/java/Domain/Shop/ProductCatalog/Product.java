@@ -68,5 +68,7 @@ public class Product extends AggregateEvent<ProductId> {
     }
 
 
-
+    public void sendAlert(String message) {
+        appendChange(new AlertSended(message)).apply();
+    }
 }

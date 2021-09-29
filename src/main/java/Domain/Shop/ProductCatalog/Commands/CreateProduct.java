@@ -6,6 +6,7 @@ import co.com.sofka.domain.generic.Command;
 
 public class CreateProduct implements Command {
 
+    private final ProductId productId;
     private final ProductName productName;
     private final Price price;
     private final Provider provider;
@@ -15,8 +16,9 @@ public class CreateProduct implements Command {
     private final Weight weight;
     private final Category category;
 
-    public CreateProduct(ProductName productName, Price price, Provider provider,
+    public CreateProduct(ProductId productId, ProductName productName, Price price, Provider provider,
                           Quantity quantity, Width width, Height height, Weight weight, Category category) {
+        this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.provider = provider;
@@ -26,6 +28,8 @@ public class CreateProduct implements Command {
         this.weight = weight;
         this.category = category;
     }
+
+    public ProductId productId(){return productId;}
 
     public ProductName productName(){
         return productName;
